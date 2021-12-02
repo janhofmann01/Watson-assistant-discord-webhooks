@@ -59,7 +59,7 @@ On the left side, click `Endpoints` and check the box called `Enable as Web Acti
 ## Set up your Assistant
 
 ### Set up Watson Assistant
-Go back to your Dashboard, and type `Watson Assistant` into the search bar. If you already have a `Watson Assistant` service you can use it, otherwise you can create a free lite version either by clicking `Watsion Assistant` under the `Catalog Results` Section or following this [link](https://cloud.ibm.com/catalog/services/watson-assistant).
+Go back to your Dashboard, and type `Watson Assistant` into the search bar. If you already have a `Watson Assistant` service you can use it, otherwise you can create a free lite version either by clicking `Watson Assistant` under the `Catalog Results` Section or following this [link](https://cloud.ibm.com/catalog/services/watson-assistant).
 
 
 ### Create your own Skill
@@ -68,7 +68,7 @@ Afterwards launch your `Watson Assistant` Service, and look for `Skills` on the 
 
 > If you can't find it, click on the profile icon in the upper right corner, and click `Switch to classic experience`.
 
-Create a new skill, select `Dialog skill` and click next. Select `Upload skill` and provide the `send-discord-message.py` file.
+Create a new skill, select `Dialog skill` and click next. Select `Upload skill` and provide the `skill-Connect-to-Discord.json` file.
 
 ### Enable Webhooks
 
@@ -80,6 +80,6 @@ Click on Options->Webhooks, paste in the URL, and ADD A `.json` AT THE END.
 
 ## Test your assistant 
 
-Now you can click on the `Try it` button and test weather the assistant is working correctly.
+Now you can click on the `Try it` button and test whether the assistant is working correctly.
 
 ---
