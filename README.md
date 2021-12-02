@@ -11,7 +11,7 @@
 
 ## Activate Webhooks in Discord
 
-We want to enable webhooks on our Discord server, which will be used by `Watson Assistant` to send messages.
+We want to enable webhooks in our Discord server's settings, which will be used by `Watson Assistant` to send messages.
 
 1. Go to your server's settings
     ![](./Images/discord-server-settings-1.png)
