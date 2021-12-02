@@ -14,7 +14,9 @@
 We want to enable webhooks on our Discord server, which will be used by `Watson Assistant` to send messages.
 
 1. Go to your server's settings
+    ![](./Images/discord-server-settings-1.png)
 2. Navigate to Integrations
+   ![](./Images/discord-server-settings-2-raw.PNG)
 3. Create a new Webhook, and copy its URL
 
 Note: Discord does not require any additional Authentification, which means that anyone who has the URL can use the Webhook. Ensure that only you, and people you trust have access to it.
@@ -76,5 +78,8 @@ Click on Options->Webhooks, paste in the URL, and ADD A `.json` AT THE END.
 
 >We could use Discord's webhook link direcly, without adding a .json, and it would send the message as well. However, Discord doesn't return anything (that Watson Assistant can understand), which would prevent us from informing the user of our assistant, that the message was sent correctly.
 
+## Test your assistant 
 
+Now you can click on the `Try it` button and test weather the assistant is working correctly.
 
+---
