@@ -1,5 +1,15 @@
 # Make Watson Assistant send messages to your Discord Server
 
+In this workshop we are going to connect Watson Assistant to a Discord Webhook, which allows us to send messages from our Assistant to a Discord textchannel.
+
+## Overview
+In this workshop we are going to:
+1. Set up a Discord webhook
+2. Set up an IBM cloud function to call our webhook
+3. Set up our Assistant, and connect it to the cloud function 
+
+![](./Images/arcitecture.png)
+
 ## Prerequisites
 
 1. Sign up for an [IBM Cloud account](https://cloud.ibm.com/registration).
@@ -9,7 +19,7 @@
 5. Create a [Discord](https://discord.com/?utm_source=google&utm_medium=advertising&utm_campaign=01/28/2020-google-de-registrations-brand_exact&utm_content=--t%3Apa--ag%3Aes&gclid=Cj0KCQiA15yNBhDTARIsAGnwe0WTA2Qz1iVVEsYdfvrBsUWP_5athAzzfClplhD-82YHGrY53EKwQwsaAp_6EALw_wcB&gclsrc=aw.ds) account, as well your own Discord server (both are free of charge).
 
 
-## Activate Webhooks in Discord
+## 1. Activate Webhooks in Discord
 
 We want to enable webhooks in our Discord server's settings, which will be used by `Watson Assistant` to send messages.
 
@@ -21,7 +31,9 @@ We want to enable webhooks in our Discord server's settings, which will be used 
 
 Note: Discord does not require any additional Authentification, which means that anyone who has the URL can use the Webhook. Ensure that only you, and people you trust have access to it.
 
-## Set up your cloud function
+## 2. Set up your cloud function
+
+We could use the Discord webhook directly, but since Discord sends us an empty response on success, our assistant wouldn't be able to verify, wether the message was sent correctly or not.
 
 ### Create cloud function
 We want to set up a cloud function, which Watson Assistant will be able to access. To do that, you need to go to your `IBM Cloud Dashboard`, and select `Functions`.
@@ -56,7 +68,7 @@ On the left side, click `Endpoints` and check the box called `Enable as Web Acti
 
 ![](./Images/enable-as-web-action.PNG)
 
-## Set up your Assistant
+## 3. Set up your Assistant
 
 ### Set up Watson Assistant
 Go back to your Dashboard, and type `Watson Assistant` into the search bar. If you already have a `Watson Assistant` service you can use it, otherwise you can create a free lite version either by clicking `Watson Assistant` under the `Catalog Results` Section or following this [link](https://cloud.ibm.com/catalog/services/watson-assistant).
