@@ -1,6 +1,33 @@
 {
   "intents": [
     {
+      "intent": "help",
+      "examples": [
+        {
+          "text": "help"
+        },
+        {
+          "text": "Help me"
+        },
+        {
+          "text": "How can you help me?"
+        },
+        {
+          "text": "I dont know"
+        },
+        {
+          "text": "I need help"
+        },
+        {
+          "text": "What can you do"
+        },
+        {
+          "text": "what can you do?"
+        }
+      ],
+      "description": ""
+    },
+    {
       "intent": "No",
       "examples": [
         {
@@ -96,13 +123,13 @@
     },
     {
       "type": "standard",
-      "title": "Get user input + Confirm",
+      "title": "Get Message",
       "output": {
         "generic": [
           {
             "values": [
               {
-                "text": "Do you want me to send $content ?"
+                "text": "Now please enter your email, so we know how we can contact you"
               }
             ],
             "response_type": "text",
@@ -114,8 +141,33 @@
       "context": {
         "content": "<? input.text ?>"
       },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_7_1641823672381"
+      },
       "conditions": "true",
       "dialog_node": "node_1_1638197283853"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I can send a message to tech support, if you want me to do that plesase type \"i want to send a message\"."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#help",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1641824005862",
+      "previous_sibling": "node_2_1638197048567"
     },
     {
       "type": "standard",
@@ -139,7 +191,7 @@
     {
       "type": "standard",
       "title": "Yes",
-      "parent": "node_1_1638197283853",
+      "parent": "node_7_1641823672381",
       "next_step": {
         "behavior": "jump_to",
         "selector": "body",
@@ -164,7 +216,7 @@
           }
         ]
       },
-      "parent": "node_1_1638197283853",
+      "parent": "node_7_1641823672381",
       "conditions": "#No",
       "dialog_node": "node_4_1638198054492",
       "previous_sibling": "node_3_1638198052522"
@@ -177,7 +229,8 @@
           "name": "main_webhook",
           "type": "webhook",
           "parameters": {
-            "content": "$content"
+            "content": "$content",
+            "username": "$mail"
           },
           "result_variable": "webhook_result_1"
         }
@@ -189,7 +242,31 @@
       },
       "digress_in": "does_not_return",
       "dialog_node": "node_7_1638197898340",
-      "previous_sibling": "node_2_1638197048567"
+      "previous_sibling": "node_1_1641824005862"
+    },
+    {
+      "type": "standard",
+      "title": "Get Email + confirm",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, do you want me to sent this message: \" $content\", and is \"$mail\" your email ?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1638197048567",
+      "context": {
+        "mail": "<? input.text ?>"
+      },
+      "conditions": "true",
+      "dialog_node": "node_7_1641823672381",
+      "previous_sibling": "node_1_1638197283853"
     },
     {
       "type": "response_condition",
@@ -259,7 +336,7 @@
       "prompt": "Did you mean:"
     },
     "intent_classification": {
-      "training_backend_version": "v2"
+      "training_backend_version": "v1"
     },
     "spelling_auto_correct": false
   },
