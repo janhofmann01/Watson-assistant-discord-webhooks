@@ -18,7 +18,7 @@ def main(dict):
     except Exception as err:
         return {"message": "an error occured while trying to call the discord webhook."}
     
-    #If the message was sent successfully, the respose's body is empty
+    #If the message was sent successfully, the body of the response is empty
     if not r.text:
         return {"message": "Message was sent successfully"}
     
